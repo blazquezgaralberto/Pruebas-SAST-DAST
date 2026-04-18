@@ -1,0 +1,32 @@
+# Gitleaks configuration
+# https://github.com/gitleaks/gitleaks
+
+title = "Gitleaks Config"
+
+[extend]
+# Usar las reglas por defecto de gitleaks
+useDefault = true
+
+# Reglas personalizadas adicionales
+[[rules]]
+id = "custom-internal-token"
+description = "Internal API token pattern"
+regex = '''(?i)(internal[_-]?api[_-]?token|int[_-]?token)\s*[:=]\s*['\"]?([A-Za-z0-9_\-]{32,})['\"]?'''
+tags = ["custom", "token"]
+
+[[rules]]
+id = "db-connection-string"
+description = "Database connection string with credentials"
+regex = '''(?i)(mysql|postgresql|mongodb|redis):\/\/[^:]+:[^@]+@'''
+tags = ["database", "credentials"]
+
+# Allowlist — archivos a ignorar
+[allowlist]
+description = "Allowlist for test files and docs"
+paths = [
+    '''docs/.*''',
+    '''.*\.md$''',
+    '''.*test.*''',
+]
+# Commits de ejemplo/demo a ignorar
+commits = []

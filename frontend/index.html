@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+  Demo Frontend — GitHub Advanced Security
+  ADVERTENCIA: Contiene vulnerabilidades INTENCIONALES para fines educativos.
+  CodeQL debería detectar los problemas marcados con [VULN].
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GHAS Demo App</title>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <h1>GitHub Advanced Security — Demo</h1>
+
+    <!-- [VULN-13] XSS via innerHTML — CodeQL: js/xss -->
+    <!-- El parámetro de la URL se inserta directamente en el DOM -->
+    <div id="greeting"></div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name") || "visitante";
+        // VULNERABLE: innerHTML con input no sanitizado
+        document.getElementById("greeting").innerHTML = "Hola, " + name + "!";
+
+        // La forma correcta:
+        // document.getElementById("greeting").textContent = "Hola, " + name + "!";
+    </script>
+
+    <!-- [VULN-14] Hardcoded API key en frontend — Secret Scanning -->
+    <script>
+        // VULNERABLE: nunca poner secretos en el frontend
+        const API_KEY = "AIzaSyFAKEKEY_ExampleForDemoOnly_1234567";
+        const API_ENDPOINT = "https://api.example.com/v1";
+    </script>
+
+    <!-- Formulario de búsqueda -->
+    <section>
+        <h2>Búsqueda</h2>
+        <form id="search-form">
+            <input id="search-input" type="text" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+        </form>
+        <div id="search-results"></div>
+    </section>
+
+    <!-- Formulario de login -->
+    <section>
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <input name="username" placeholder="Usuario" autocomplete="username">
+            <input name="password" type="password" placeholder="Contraseña" autocomplete="current-password">
+            <button type="submit">Entrar</button>
+        </form>
+    </section>
+</body>
+</html>

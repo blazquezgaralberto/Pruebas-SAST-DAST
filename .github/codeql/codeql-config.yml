@@ -1,0 +1,26 @@
+name: "CodeQL Custom Configuration"
+
+# Directorios a excluir del análisis (tests, docs, generados)
+paths-ignore:
+  - "**/*.test.py"
+  - "**/*.spec.js"
+  - "node_modules/**"
+  - "docs/**"
+  - "frontend/vendor/**"
+
+# Query suites activas
+queries:
+  - uses: security-extended
+  - uses: security-and-quality
+
+# Filtros de severidad — solo reportar HIGH y CRITICAL
+query-filters:
+  - exclude:
+      problem.severity:
+        - recommendation
+        - warning
+
+# Packs de queries adicionales de la comunidad
+packs:
+  - codeql/python-queries
+  - codeql/javascript-queries
