@@ -34,7 +34,7 @@ usando una aplicación web Python/Node.js deliberadamente vulnerable con fines e
 
 ---
 
-## Las 3 Partes de GHAS
+## Las 3 Partes de GitHub Advanced Security
 
 ### 1. Secret Scanning
 Detecta automáticamente secretos (API keys, tokens, contraseñas) commiteados al repositorio.
