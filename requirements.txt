@@ -4,36 +4,36 @@
 
 # [DEP-VULN-1] Flask 1.0.2 — CVE-2018-1000656 (DoS via malformed JSON)
 # Versión segura: flask>=2.3.0
-Flask==1.0.2
+Flask==1.1.4
 
 # [DEP-VULN-2] Jinja2 2.10 — CVE-2019-10906 (sandbox escape)
 # Versión segura: Jinja2>=3.1.3
-Jinja2==2.10
+Jinja2==3.1.6
 
 # [DEP-VULN-3] Werkzeug 0.15.3 — CVE-2019-14806 (predictable token generation)
 # Versión segura: Werkzeug>=3.0.3
-Werkzeug==0.15.3
+Werkzeug==3.1.8
 
 # [DEP-VULN-4] requests 2.18.4 — CVE-2018-18074 (credentials exposure in redirects)
 # Versión segura: requests>=2.32.0
-requests==2.18.4
+requests==2.33.1
 
 # [DEP-VULN-5] PyYAML 3.13 — CVE-2019-20477 (arbitrary code execution via yaml.load)
 # Versión segura: PyYAML>=6.0.1
-PyYAML==3.13
+PyYAML==6.0.3
 
 # [DEP-VULN-6] cryptography 2.1.4 — múltiples CVEs
 # Versión segura: cryptography>=42.0.0
-cryptography==2.1.4
+cryptography==46.0.7
 
 # [DEP-VULN-7] Pillow 5.0.0 — CVE-2019-16865 (DoS via crafted image)
 # Versión segura: Pillow>=10.3.0
-Pillow==5.0.0
+Pillow==12.2.0
 
 # [DEP-VULN-8] SQLAlchemy 1.1.18 — no recibe parches de seguridad
 # Versión segura: SQLAlchemy>=2.0.0
-SQLAlchemy==1.1.18
+SQLAlchemy==2.0.49
 
 # Dependencias de desarrollo (también desactualizadas para el demo)
 # [DEP-VULN-9] pytest 3.0.0
-pytest==3.0.0
+pytest==9.0.3
